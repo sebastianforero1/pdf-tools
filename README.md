@@ -18,12 +18,15 @@ Herramienta web local para manipulación de archivos PDF construida con Python y
 
 ## 📁 Estructura del Proyecto
 
+```
 pdf-tools/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
 ├── app.py
 └── README.md
+```
+```
 
 
 ## 🚀 Instalación y Uso
