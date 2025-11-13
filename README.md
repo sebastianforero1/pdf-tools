@@ -34,31 +34,36 @@ pdf-tools/
 ### Opción 1: Con Docker Compose (Recomendado)
 
 1. **Clonar o crear el proyecto**:
+```
 mkdir pdf-tools
 cd pdf-tools
+```
+3. **Crear los archivos necesarios** (Dockerfile, docker-compose.yml, requirements.txt, app.py)
 
-2. **Crear los archivos necesarios** (Dockerfile, docker-compose.yml, requirements.txt, app.py)
-
-3. **Construir y ejecutar**:
+4. **Construir y ejecutar**:
+```
 docker-compose up --build -d
-
-4. **Acceder a la aplicación**:
+```
+6. **Acceder a la aplicación**:
+```
 http://localhost:8501
-
+```
 
 ### Opción 2: Con Docker directamente
 
 Construir la imagen
+```
 docker build -t pdf-tools-local .
-
+```
 Ejecutar el contenedor
+```
 docker run -d --name pdf-tools -p 8501:8501 pdf-tools-local
-
+```
 
 ## 📦 Archivos de Configuración
 
 ### Dockerfile
-
+```
 FROM python:3.11-slim
 
 WORKDIR /app
@@ -83,14 +88,14 @@ build: .
 ports:
 - "8501:8501"
 restart: unless-stopped
-
+```
 
 ### requirements.txt
-
+```
 streamlit
 pypdf
 pdf2docx
-
+```
 
 ## 🎯 Funcionalidades Detalladas
 
@@ -130,21 +135,26 @@ pdf2docx
 ## 🔧 Comandos Útiles
 
 ### Ver logs del contenedor
+```
 docker-compose logs -f
-
+```
 ### Detener el servicio
+```
 docker-compose down
-
+```
 ### Reiniciar el servicio
+```
 docker-compose restart
-
+```
 ### Reconstruir la imagen
+```
 docker-compose up --build -d
-
+```
 ### Eliminar contenedor e imagen
+```
 docker-compose down
 docker rmi pdf-tools-local
-
+```
 
 ## 🐛 Solución de Problemas
 
@@ -157,16 +167,19 @@ ports:
 
 ### Error de permisos en archivos temporales
 El contenedor maneja automáticamente los archivos temporales. Si experimentas problemas, reinicia el contenedor:
+```
 docker-compose restart
-
+```
 
 ### La aplicación no carga
 Verifica que el contenedor esté ejecutándose:
+```
 docker ps
-
+```
 Si no aparece, revisa los logs:
+```
 docker-compose logs
-
+```
 
 ## 🔐 Seguridad y Privacidad
 
